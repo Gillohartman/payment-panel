@@ -20,8 +20,10 @@ const security = {
 // This process is the key system alone. It used to serve the site's pages from ./public as well; those are gone
 // with the website folder, so every path that is not the API is a 404 - which is what the Discord bot, the
 // panel's own API calls and the mod's three /api/license endpoints need and nothing else.
+```ts
 const server = Bun.serve({
-  hostname: process.env.HOST ?? "127.0.0.1", port: Number(new URL(origin).port || 4318),
+  hostname: "0.0.0.0",
+  port: Number(process.env.PORT || new URL(origin).port || 4318),
   maxRequestBodySize: 21_000_000,
   async fetch(req, server) {
     const path = new URL(req.url).pathname;
