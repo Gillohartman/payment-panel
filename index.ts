@@ -36,6 +36,7 @@ const server = Bun.serve({
     return response;
   },
 });
-<CodeBlock language="typescript" editable>
+
+console.log("Revolution Client key system ready at " + server.url);
 console.log(`Revolution Client key system ready at $DIL0`);
 </CodeBlock>
